@@ -108,6 +108,14 @@ app.put("/scores/", useDelay, (req, res) => {
     res.send(scores.update(req.body.subject, req.body.scores).toString());
 });
 
+app.get("/do/:task", useDelay, (req, res) => {
+    if(!req.params.task){
+        res.send("-1");
+    }
+    else{
+        res.send(`finish ${req.params.task}`);
+    }
+});
 
 app.listen(3000, () => {
     console.log("app is listening on port 3000...");
